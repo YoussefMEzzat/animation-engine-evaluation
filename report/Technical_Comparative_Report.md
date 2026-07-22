@@ -210,14 +210,16 @@ Motion Canvas offers powerful animation features, including:
 
 Its architecture makes it suitable for complex animated scenes.
 
-## Performance
+| Engine | Render / Build Time | Output Size | Resolution | FPS | Notes |
+|--------|--------------------:|------------:|-----------:|----:|------|
+| Remotion | 17.01 s | 234 KB | 1920×1080 | 30 | Direct MP4 rendering with React-based workflow |
+| Motion Canvas | 7.52 s (Build) | N/A | N/A | N/A | Build completed successfully; video export requires an additional rendering step |
+| Manim | 18.81 s | 158 KB | 1920×1080 | 60 | Direct MP4 rendering, optimized for mathematical animations |
+| SVG Animation | N/A | N/A | Browser | Browser | Browser-native animation using SVG and JavaScript (`requestAnimationFrame`), no offline rendering step |
 
-Preview performance was smooth during testing.
+**Performance Measurement Methodology**
 
-Rendering quality was excellent, and exporting through FFmpeg produced high-quality video output.
-
-Performance remained responsive throughout the integration test.
-
+Render and build times were measured using PowerShell `Measure-Command` on the same development machine. Output file size, resolution, and frame rate were collected from the generated MP4 file properties. SVG-based animation was evaluated as a browser-native runtime animation and therefore does not require an offline rendering step.
 ## Advantages
 
 - Excellent TypeScript support
